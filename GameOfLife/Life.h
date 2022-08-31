@@ -6,6 +6,7 @@ class Life
 private:
 	int row, col;
 	int* grid;
+	//移动
 	int* dx;
 	int* dy;
 	int posToIdx(int i, int j); // 转坐标为数组中的下标，第i行第j列

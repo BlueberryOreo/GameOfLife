@@ -94,11 +94,11 @@ void Life::print()
 	for (int i = 1; i <= row; i ++) {
 		for (int j = 1; j <= col; j ++) {
 			int idx = posToIdx(i, j);
-			//cout << (grid[idx] ? "¡ö" : "¡õ");
-			printf("%s", grid[idx] ? "¡ö" : "¡õ");
+			cout << (grid[idx] ? "¡ö" : "¡õ");
+			//printf("%s", grid[idx] ? "¡ö" : "¡õ");
 		}
-		//cout << endl;
-		printf("\n");
+		cout << endl;
+		//printf("\n");
 	}
 }
 
