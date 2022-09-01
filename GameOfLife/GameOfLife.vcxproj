@@ -127,10 +127,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DoubleBuffer.cpp" />
     <ClCompile Include="GameOfLife.cpp" />
     <ClCompile Include="Life.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DoubleBuffer.h" />
     <ClInclude Include="Life.h" />
     <ClInclude Include="utility.h" />
   </ItemGroup>

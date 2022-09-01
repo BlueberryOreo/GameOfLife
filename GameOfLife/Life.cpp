@@ -90,7 +90,8 @@ void Life::initialize(int flag = 1)
 
 void Life::print()
 {
-	system("cls");
+	//system("cls");
+	//clear();
 	for (int i = 1; i <= row; i ++) {
 		for (int j = 1; j <= col; j ++) {
 			int idx = posToIdx(i, j);
@@ -100,6 +101,7 @@ void Life::print()
 		cout << endl;
 		//printf("\n");
 	}
+	//show();
 }
 
 void Life::update()

@@ -21,12 +21,18 @@
     <ClCompile Include="Life.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="DoubleBuffer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Life.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="utility.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="DoubleBuffer.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
