@@ -79,6 +79,11 @@ void DoubleBuffer::reset()
 
 void DoubleBuffer::close()
 {
+    CONSOLE_CURSOR_INFO info;
+    info.dwSize = 1;
+    info.bVisible = true;
+    SetConsoleActiveScreenBuffer(l_stdBuffer);
+    SetConsoleCursorInfo(l_stdBuffer, &info);
 	CloseHandle(l_buffer1);
     CloseHandle(l_buffer2);
 	delete[] _data;
