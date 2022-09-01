@@ -11,6 +11,7 @@ DataStructruesCourse-practice1
 50
 50
 n
+y
 0
 0
 0
@@ -41,3 +42,4 @@ n
 13 14
 -1
 ```
+
