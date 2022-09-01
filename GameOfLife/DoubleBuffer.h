@@ -19,4 +19,5 @@ public:
     void reset();
     void close();
     void clear();
+    void setConsoleWindowSize(int width, int height);
 };

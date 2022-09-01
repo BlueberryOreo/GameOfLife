@@ -2,10 +2,12 @@
 #include "Life.h"
 
 void instructions(int &n, int &m, int &flag1, int &flag2) {
-	cout << "请输入行数：" << endl;
+	cout << "请输入行数（最大51）：" << endl;
 	cin >> n;
-	cout << "请输入列数：" << endl;
+	if (n > 51) n = 51;
+	cout << "请输入列数（最大88）：" << endl;
 	cin >> m;
+	if (m > 88) m = 88;
 	cout << "是否随机初始化？(Y/N)" << endl;
 	char choice;
 	cin >> choice;
@@ -17,7 +19,7 @@ void instructions(int &n, int &m, int &flag1, int &flag2) {
 	else flag2 = 0;
 }
 
-bool userSaysYes() {
+bool userSaysYes(DoubleBuffer &d) {
 	cout << "是否继续下一代？(Y/N)" << endl;
 	char choice;
 	cin >> choice;
@@ -31,24 +33,17 @@ int main() {
 	srand((unsigned)time(NULL));
 	//======================================
 
-	// ========
-	DoubleBuffer db;
-	db.inputMode();
-	// ========
-
 	int n, m, flag1, flag2; // flag1: 随机初始化， flag2: 自动播放
 	instructions(n, m, flag1, flag2);
 	Life configuration(n, m);
 	configuration.initialize(flag1);
 	system("cls");
+	// ========
+	DoubleBuffer db;
+	// ========
 	configuration.print();
-
-	// ===========
-	// ===========
 	
-	//while (userSaysYes()) {
 	if (flag2) {
-		db.reset();
 		while (true) {
 			configuration.update();
 			Sleep(50);
@@ -56,10 +51,11 @@ int main() {
 			configuration.print();
 			db.show();
 		}
+		db.close();
 	}
 	else {
 		db.close();
-		while (userSaysYes()) {
+		while (userSaysYes(db)) {
 			system("cls");
 			configuration.update();
 			configuration.print();
