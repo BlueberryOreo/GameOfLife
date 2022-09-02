@@ -8,7 +8,7 @@ int Life::posToIdx(int i, int j)
 		//cout << "Out of bound: i=" << i << " j=" << j << endl;
 		return -1;
 	}
-	return i * (row + 2) + 1 + j;
+	return i * (col + 2) + 1 + j;
 }
 
 int Life::rnd(int a, int b)
@@ -31,10 +31,10 @@ int Life::cntNeighbour(int i, int j) {
 }
 
 // public
-Life::Life(int n = 50, int m = 60) {
+Life::Life(int n = 51, int m = 88) {
 	if (n <= 0 || m <= 0) {
-		n = 50;
-		m = 60;
+		n = 51;
+		m = 88;
 	}
 	row = n;
 	col = m;
@@ -92,16 +92,17 @@ void Life::print()
 {
 	//system("cls");
 	//clear();
+	//cout << row << " " << col << endl;
 	for (int i = 1; i <= row; i ++) {
 		for (int j = 1; j <= col; j ++) {
 			int idx = posToIdx(i, j);
 			cout << (grid[idx] ? "¡ö" : "¡õ");
-			//printf("%s", grid[idx] ? "¡ö" : "¡õ");
+			//cout << j << " ";
+			//cout << idx << " ";
 		}
+		//cout << "done";
 		cout << endl;
-		//printf("\n");
 	}
-	//show();
 }
 
 void Life::update()
