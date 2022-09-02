@@ -16,11 +16,13 @@ DoubleBuffer::DoubleBuffer(){
     l_stdBuffer = GetStdHandle(STD_OUTPUT_HANDLE);
     //setConsoleWindowSize(width, height);
 
+    // 创建缓冲区1和缓冲区2
     l_buffer1 = CreateConsoleScreenBuffer(GENERIC_WRITE | GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, 
 		CONSOLE_TEXTMODE_BUFFER, NULL);
     l_buffer2 = CreateConsoleScreenBuffer(GENERIC_WRITE | GENERIC_READ, FILE_SHARE_READ | FILE_SHARE_WRITE, NULL, 
 		CONSOLE_TEXTMODE_BUFFER, NULL);
     SetConsoleActiveScreenBuffer(l_buffer1);
+
     GetConsoleScreenBufferInfo(l_stdBuffer, &consoleInfo); // 获取控制台行列等属性
     //cout << consoleInfo.dwSize.X << endl;
     //exit(0);
