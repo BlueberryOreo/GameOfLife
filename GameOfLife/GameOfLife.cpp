@@ -1,7 +1,7 @@
 ﻿#include "utility.h"
 #include "Life.h"
 
-void instructions(int &n, int &m, int &flag1, int &flag2) {
+void instructions(int &n, int &m, int &flag1, int &flag2, int &interval) {
 	cout << "请输入行数（最大51）：" << endl;
 	cin >> n;
 	if (n > 51) n = 51;
@@ -15,7 +15,12 @@ void instructions(int &n, int &m, int &flag1, int &flag2) {
 	else flag1 = 0;
 	cout << "是否自动播放？(Y/N)[播放后按Ctrl+C退出]" << endl;
 	cin >> choice;
-	if (choice == 'Y' || choice - 'a' + 'A' == 'Y') flag2 = 1;
+	if (choice == 'Y' || choice - 'a' + 'A' == 'Y') {
+		flag2 = 1;
+		cout << "请输入每一代的间隔时间(ms)：" << endl;
+		cin >> interval;
+		if (interval <= 0) interval = 1000;
+	}
 	else flag2 = 0;
 }
 
@@ -34,7 +39,8 @@ int main() {
 	//======================================
 
 	int n, m, flag1, flag2; // flag1: 随机初始化， flag2: 自动播放
-	instructions(n, m, flag1, flag2);
+	int interval = 1000;
+	instructions(n, m, flag1, flag2, interval);
 	Life configuration(n, m);
 	configuration.initialize(flag1);
 	system("cls");
@@ -46,7 +52,7 @@ int main() {
 	if (flag2) {
 		while (true) {
 			configuration.update();
-			Sleep(50);
+			Sleep(interval);
 			//db.clear();
 			configuration.print();
 			db.show();
