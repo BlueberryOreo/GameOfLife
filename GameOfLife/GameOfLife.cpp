@@ -2,6 +2,7 @@
 #include "Life.h"
 
 void instructions(int &n, int &m, int &flag1, int &flag2, int &interval) {
+	cout << "□■□\n■□■\n■■□" << endl;
 	cout << "欢迎来到生命游戏。" << endl;
 	cout << "这是一个无人操作的游戏，在输入了场地的大小之后，你只需要像小的时候观察蚂蚁那样看它运行就可以了。" << endl;
 	cout << "生命游戏的规则是：\n" << 
