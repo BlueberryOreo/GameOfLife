@@ -97,6 +97,7 @@ void Life::print()
 		for (int j = 1; j <= col; j ++) {
 			int idx = posToIdx(i, j);
 			cout << (grid[idx] ? "¡ö" : "¡õ");
+			//cout << (grid[idx] ? 'x' : ' ');
 			//cout << j << " ";
 			//cout << idx << " ";
 		}
