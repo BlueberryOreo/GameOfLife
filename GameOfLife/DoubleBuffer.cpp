@@ -39,7 +39,8 @@ void DoubleBuffer::show(){
     static COORD coord = {0, 0};
     static DWORD b;
     //cout << nowActive << endl;
-    ReadConsoleOutputCharacter(l_stdBuffer, _data, 10000, coord, &b);
+    ReadConsoleOutputCharacter(l_stdBuffer, _data, 10000, coord, &b); // 从控制台缓冲区读取cout的内容
+    // 写到下一个要显示的缓冲区内，然后显示
     if(nowActive == 1){
         WriteConsoleOutputCharacter(l_buffer2, _data, wcslen(_data), coord, &b);
         SetConsoleActiveScreenBuffer(l_buffer2);
@@ -64,8 +65,8 @@ void DoubleBuffer::inputMode()
 	CONSOLE_CURSOR_INFO info;
 	info.dwSize = 1;
 	info.bVisible = true;
-	SetConsoleActiveScreenBuffer(l_stdBuffer);
-	SetConsoleCursorInfo(l_stdBuffer, &info);
+	SetConsoleActiveScreenBuffer(l_stdBuffer); // 显示标准缓冲区
+	SetConsoleCursorInfo(l_stdBuffer, &info); // 显示光标
 	system("cls");
 }
 
@@ -84,8 +85,9 @@ void DoubleBuffer::close()
     CONSOLE_CURSOR_INFO info;
     info.dwSize = 1;
     info.bVisible = true;
-    SetConsoleActiveScreenBuffer(l_stdBuffer);
+    SetConsoleActiveScreenBuffer(l_stdBuffer); // 显示标准缓冲区
     SetConsoleCursorInfo(l_stdBuffer, &info);
+    // 关闭两个新建的缓冲区
 	CloseHandle(l_buffer1);
     CloseHandle(l_buffer2);
 	delete[] _data;
