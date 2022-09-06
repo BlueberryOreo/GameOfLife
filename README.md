@@ -8,9 +8,10 @@ DataStructruesCourse-practice1
 ### *滑翔机生成器输入：
 
 ```
-50
-50
 n
+1
+50
+50
 y
 33
 0
