@@ -13,10 +13,11 @@ void instructions(int &n, int &m, int &flag1, int &flag2, int &interval) {
 		"5、细胞可以重生。当一个死亡的细胞的周围8个格子中恰好有3个存活的细胞，那么这个细胞在下一代可以复活。" << endl;
 	cout << endl;
 	cout << "你需要做的是：\n" << 
-		"1、决定是否需要自动随机初始化还是手动输入；\n" << 
-		"2、输入一定的行数和列数（行数不超过51，列数不超过88）；\n" << 
-		"3、决定是否需要自动播放还是手动控制\n" << 
-		"4、观察它的变化。" << endl;
+		"1、在开始游戏之前请将窗口最大化；\n" <<
+		"2、决定是否需要自动随机初始化还是手动输入；\n" << 
+		"3、输入一定的行数和列数（行数不超过51，列数不超过88）；\n" << 
+		"4、决定是否需要自动播放还是手动控制\n" << 
+		"5、观察它的变化。" << endl;
 
 	cout << "是否随机初始化？(Y/N)" << endl;
 	char choice;
@@ -99,14 +100,7 @@ int main() {
 	srand((unsigned)time(NULL));
 	//======================================
 
-	// ========
-	DoubleBuffer db;
-	db.maxScreen();
-	//system("mode con cols=177 lines=56");
-	db.setConsoleWindowSize(177, 56);
-	// ========
-
-	db.inputMode();
+	//db.inputMode();
 	int n = 0, m = 0, flag1, flag2; // flag1: 随机初始化、手动输入还是文件读入， flag2: 自动播放
 	int interval = 1000;
 	instructions(n, m, flag1, flag2, interval);
@@ -115,9 +109,15 @@ int main() {
 	configuration.addHis();
 	system("cls");
 	configuration.print();
+	// ========
+	DoubleBuffer db;
+	//db.maxScreen();
+	//system("mode con cols=177 lines=56");
+	//db.setConsoleWindowSize(177, 56);
+	// ========
 	
 	if (flag2) {
-		db.reset();
+		//db.reset();
 		while (true) {
 			configuration.update();
 			Sleep(interval);

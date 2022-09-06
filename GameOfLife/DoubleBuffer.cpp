@@ -38,7 +38,7 @@ DoubleBuffer::DoubleBuffer(){
 void DoubleBuffer::show(){
     static COORD coord = {0, 0};
     static DWORD b;
-    //cout << nowActive << endl;
+    //cout << nowActive;
     ReadConsoleOutputCharacter(l_stdBuffer, _data, 10000, coord, &b); // 从控制台缓冲区读取cout的内容
     // 写到下一个要显示的缓冲区内，然后显示
     if(nowActive == 1){
@@ -81,7 +81,7 @@ void DoubleBuffer::reset()
 	CONSOLE_CURSOR_INFO info;
 	info.dwSize = 1;
 	info.bVisible = false;
-	SetConsoleActiveScreenBuffer(l_buffer1);
+	SetConsoleActiveScreenBuffer(l_buffer2);
     nowActive = 1; 
     SetConsoleCursorInfo(l_stdBuffer, &info);
     SetConsoleCursorInfo(l_buffer1, &info);
