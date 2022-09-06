@@ -99,16 +99,22 @@ int main() {
 	srand((unsigned)time(NULL));
 	//======================================
 
+	// ========
+	DoubleBuffer db;
+	db.maxScreen();
+	//system("mode con cols=177 lines=56");
+	db.setConsoleWindowSize(177, 56);
+	// ========
+
+	db.inputMode();
 	int n = 0, m = 0, flag1, flag2; // flag1: 随机初始化、手动输入还是文件读入， flag2: 自动播放
 	int interval = 1000;
 	instructions(n, m, flag1, flag2, interval);
 	Life configuration(n, m);
 	configuration.initialize(flag1);
 	configuration.addHis();
+	db.reset();
 	system("cls");
-	// ========
-	DoubleBuffer db;
-	// ========
 	configuration.print();
 	
 	if (flag2) {

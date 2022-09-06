@@ -60,6 +60,12 @@ void DoubleBuffer::clear()
     SetConsoleCursorPosition(l_stdBuffer, coord);
 }
 
+void DoubleBuffer::maxScreen()
+{
+    HWND Hwnd = GetForegroundWindow();
+    ShowWindow(Hwnd, SW_MAXIMIZE);
+}
+
 void DoubleBuffer::inputMode()
 {
 	CONSOLE_CURSOR_INFO info;
@@ -77,7 +83,9 @@ void DoubleBuffer::reset()
 	info.bVisible = false;
 	SetConsoleActiveScreenBuffer(l_buffer1);
     nowActive = 1; 
-	SetConsoleCursorInfo(l_stdBuffer, &info);
+    SetConsoleCursorInfo(l_stdBuffer, &info);
+    SetConsoleCursorInfo(l_buffer1, &info);
+    SetConsoleCursorInfo(l_buffer2, &info);
 }
 
 void DoubleBuffer::close()
@@ -96,6 +104,11 @@ void DoubleBuffer::close()
 void DoubleBuffer::setConsoleWindowSize(int width, int height) {
     SMALL_RECT wrt = {0, 0, width - 1, height - 1};
     SetConsoleWindowInfo(l_stdBuffer, TRUE, &wrt);
+    SetConsoleWindowInfo(l_buffer1, TRUE, &wrt);
+    SetConsoleWindowInfo(l_buffer2, TRUE, &wrt);
     COORD coord = {width, height};
     SetConsoleScreenBufferSize(l_stdBuffer, coord);
+    SetConsoleScreenBufferSize(l_buffer1, coord);
+    SetConsoleScreenBufferSize(l_buffer2, coord);
+    //system();
 }

@@ -99,6 +99,7 @@ void Life::initialize(int flag=1)
 		}
 		row = l_row + (l_col == 0 ? 0 : 1);
 		col = max_col;
+		//cout << row << " " << col << endl;
 		if (isOutOfBound) {
 			cout << "ÊäÈëÔ½½ç£¡row=" << row << " col=" << col << endl;
 			system("pause");
