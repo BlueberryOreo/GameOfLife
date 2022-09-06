@@ -113,11 +113,11 @@ int main() {
 	Life configuration(n, m);
 	configuration.initialize(flag1);
 	configuration.addHis();
-	db.reset();
 	system("cls");
 	configuration.print();
 	
 	if (flag2) {
+		db.reset();
 		while (true) {
 			configuration.update();
 			Sleep(interval);
