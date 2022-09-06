@@ -45,3 +45,20 @@ y
 -1
 ```
 
+### 文件输入样例：
+
+文件中死细胞用空格' '表示，活细胞请用ASCII码除空格以外的可见字符表示
+
+```
+test.txt:
+ xxxxx xx 
+xx xx x  x
+xx xx   x 
+x xx  xx x
+       xxx
+  x xxx  x
+xx  xx x  
+ xxx  x xx
+xxxxxx    
+xx  x xx x
+```
