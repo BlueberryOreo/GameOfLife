@@ -60,12 +60,6 @@ void DoubleBuffer::clear()
     SetConsoleCursorPosition(l_stdBuffer, coord);
 }
 
-void DoubleBuffer::maxScreen()
-{
-    HWND Hwnd = GetForegroundWindow();
-    ShowWindow(Hwnd, SW_MAXIMIZE);
-}
-
 void DoubleBuffer::inputMode()
 {
 	CONSOLE_CURSOR_INFO info;
@@ -101,6 +95,7 @@ void DoubleBuffer::close()
 	delete[] _data;
 }
 
+// Deprecated
 void DoubleBuffer::setConsoleWindowSize(int width, int height) {
     SMALL_RECT wrt = {0, 0, width - 1, height - 1};
     SetConsoleWindowInfo(l_stdBuffer, TRUE, &wrt);
@@ -111,4 +106,11 @@ void DoubleBuffer::setConsoleWindowSize(int width, int height) {
     SetConsoleScreenBufferSize(l_buffer1, coord);
     SetConsoleScreenBufferSize(l_buffer2, coord);
     //system();
+}
+
+// Deprecated
+void DoubleBuffer::maxScreen()
+{
+    HWND Hwnd = GetForegroundWindow();
+    ShowWindow(Hwnd, SW_MAXIMIZE);
 }

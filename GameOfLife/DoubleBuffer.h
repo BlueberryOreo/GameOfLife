@@ -20,6 +20,6 @@ public:
     void reset(); // 关闭输入模式
     void close(); // 关闭双缓冲
     void clear(); // 清除缓冲区
-    void setConsoleWindowSize(int width, int height); // 设置控制台大小
-    void maxScreen();
+    void setConsoleWindowSize(int width, int height); // 设置控制台大小 Deprecated
+    void maxScreen(); // Deprecated
 };
