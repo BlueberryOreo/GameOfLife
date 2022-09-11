@@ -175,9 +175,11 @@ void Life::print(int *arr)
 			int idx = posToIdx(i, j);
 			if (arr) {
 				cout << (arr[idx] ? "¡ö" : "¡õ");
+				//cout << (arr[idx] ? "x" : " ");
 			}
 			else {
 				cout << (grid[idx] ? "¡ö" : "¡õ");
+				//cout << (grid[idx] ? "x" : " ");
 			}
 			//cout << grid[idx];
 			//cout << j << " ";
